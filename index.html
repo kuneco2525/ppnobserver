@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="description" content="ミラティブぽかぽかプチ農園のギルド畑時刻表">
+<title>ギルド畑</title>
+<link href="index.css" rel="stylesheet">
+<script src="index.js" defer></script>
+</head>
+<body>
+<section>
+	<h1>配色</h1>
+	<select id="mood">
+		<option value="0">ライト</option>
+		<option value="1">ダーク</option>
+	</select>
+</section>
+<section>
+	<h1>現在時刻</h1>
+	<p><time id="timecurrent"></time></p>
+	<p>共有可能リンクに<button id="sharelink">移動</button></p>
+	<p>保存データを<button id="resetstorage">リセット</button></p>
+	<p>押しても何か設定を変更すれば最新の設定を維持できます。</p>
+	<p>押してそのままタブを閉じるとデータのゴミが残りません。</p>
+</section>
+<section>
+	<h1>設定</h1>
+	<p><select id="ac" class="ml"><option value="0">aと同じ作物</option><option value="1">かぶ</option><option value="2">にんじん</option><option value="3">たまねぎ</option><option value="4">キャベツ</option><option value="5">トマト</option><option value="6">とうもろこし</option><option value="7">りんご</option><option value="8">みかん</option><option value="9">サルビア</option><option value="10">クレマチス</option></select>を<input type="number" min="0" step="1" id="ih">時間<input type="number" min="0" max="59" step="1" id="im">分<input type="number" min="0" max="59" step="1" id="is">秒間隔で連続で<button id="autointerval">植える</button></p>
+	<p>a<select class="c ml"><option value="0">未開放</option><option value="1">かぶ</option><option value="2">にんじん</option><option value="3">たまねぎ</option><option value="4">キャベツ</option><option value="5">トマト</option><option value="6">とうもろこし</option><option value="7">りんご</option><option value="8">みかん</option><option value="9">サルビア</option><option value="10">クレマチス</option></select>を<input type="date" class="sd mr"><input type="number" min="0" max="23" step="1" class="sh">:<input type="number" min="0" max="59" step="1" class="sm">:<input type="number" min="0" max="59" step="1" class="ss">に植える</p>
+	<p>b<select class="c ml"><option value="0">未開放</option><option value="1">かぶ</option><option value="2">にんじん</option><option value="3">たまねぎ</option><option value="4">キャベツ</option><option value="5">トマト</option><option value="6">とうもろこし</option><option value="7">りんご</option><option value="8">みかん</option><option value="9">サルビア</option><option value="10">クレマチス</option></select>を<input type="date" class="sd mr"><input type="number" min="0" max="23" step="1" class="sh">:<input type="number" min="0" max="59" step="1" class="sm">:<input type="number" min="0" max="59" step="1" class="ss">に植える</p>
+	<p>c<select class="c ml"><option value="0">未開放</option><option value="1">かぶ</option><option value="2">にんじん</option><option value="3">たまねぎ</option><option value="4">キャベツ</option><option value="5">トマト</option><option value="6">とうもろこし</option><option value="7">りんご</option><option value="8">みかん</option><option value="9">サルビア</option><option value="10">クレマチス</option></select>を<input type="date" class="sd mr"><input type="number" min="0" max="23" step="1" class="sh">:<input type="number" min="0" max="59" step="1" class="sm">:<input type="number" min="0" max="59" step="1" class="ss">に植える</p>
+	<p>d<select class="c ml"><option value="0">未開放</option><option value="1">かぶ</option><option value="2">にんじん</option><option value="3">たまねぎ</option><option value="4">キャベツ</option><option value="5">トマト</option><option value="6">とうもろこし</option><option value="7">りんご</option><option value="8">みかん</option><option value="9">サルビア</option><option value="10">クレマチス</option></select>を<input type="date" class="sd mr"><input type="number" min="0" max="23" step="1" class="sh">:<input type="number" min="0" max="59" step="1" class="sm">:<input type="number" min="0" max="59" step="1" class="ss">に植える</p>
+	<p>e<select class="c ml"><option value="0">未開放</option><option value="1">かぶ</option><option value="2">にんじん</option><option value="3">たまねぎ</option><option value="4">キャベツ</option><option value="5">トマト</option><option value="6">とうもろこし</option><option value="7">りんご</option><option value="8">みかん</option><option value="9">サルビア</option><option value="10">クレマチス</option></select>を<input type="date" class="sd mr"><input type="number" min="0" max="23" step="1" class="sh">:<input type="number" min="0" max="59" step="1" class="sm">:<input type="number" min="0" max="59" step="1" class="ss">に植える</p>
+	<p>f<select class="c ml"><option value="0">未開放</option><option value="1">かぶ</option><option value="2">にんじん</option><option value="3">たまねぎ</option><option value="4">キャベツ</option><option value="5">トマト</option><option value="6">とうもろこし</option><option value="7">りんご</option><option value="8">みかん</option><option value="9">サルビア</option><option value="10">クレマチス</option></select>を<input type="date" class="sd mr"><input type="number" min="0" max="23" step="1" class="sh">:<input type="number" min="0" max="59" step="1" class="sm">:<input type="number" min="0" max="59" step="1" class="ss">に植える</p>
+	<p>(収穫後の畝のみ)休耕明けに<select id="rc"><option value="0">元と同じ作物</option><option value="1">かぶ</option><option value="2">にんじん</option><option value="3">たまねぎ</option><option value="4">キャベツ</option><option value="5">トマト</option><option value="6">とうもろこし</option><option value="7">りんご</option><option value="8">みかん</option><option value="9">サルビア</option><option value="10">クレマチス</option></select>を続けて<button id="repeat">植える</button></p>
+</section>
+<section>
+	<h1>時刻表</h1>
+	<p><select id="view" class="mr"><option value="-1">全て</option><option value="-2">種植え</option><option value="0">a</option><option value="1">b</option><option value="2">c</option><option value="3">d</option><option value="4">e</option><option value="5">f</option></select>表示</p>
+	<table>
+		<thead><tr><th>畝</th><th>作物</th><th>動作</th><th>予定時刻</th><th>予定時刻まで</th></tr></thead>
+		<tbody id="timetable"></tbody>
+	</table>
+</section>
+</body>
+</html>

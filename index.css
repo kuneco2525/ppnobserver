@@ -1,0 +1,10 @@
+@charset "UTF-8";
+*{font-family:monospace;font-size:12px;}
+input[type='number']{width:2.5rem;}
+#crops{margin-left:2.25rem;}
+.mr,.mx{margin-right:0.5rem;}
+.ml,.mx{margin-left:0.5rem;}
+.red{color:red;}
+h1{font-size:inherit;}
+p{margin-top:0.5rem;margin-bottom:0.5rem;}
+@media(-webkit-min-device-pixel-ratio:2),(min-resolution:192dpi){*{font-size:8px;}}
