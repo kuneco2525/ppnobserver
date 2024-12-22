@@ -7,4 +7,5 @@ input[type='number']{width:2.5rem;}
 .red{color:red;}
 h1{font-size:inherit;}
 p{margin-top:0.5rem;margin-bottom:0.5rem;}
-@media(-webkit-min-device-pixel-ratio:2),(min-resolution:192dpi){*{font-size:8px;}}
+@media(-webkit-min-device-pixel-ratio:2),(min-resolution:192dpi){*{font-size:6px;}}
+@media(-webkit-min-device-pixel-ratio:3),(min-resolution:288dpi){*{font-size:4px;}}

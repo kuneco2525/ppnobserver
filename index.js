@@ -34,7 +34,7 @@ let config = {
 // 文字埋め 本サイトではdigitsは未使用(2固定)
 function strpad(subject, pchar = '0', digits = 2) {
 	let r = String(subject);
-	for(let i = r.length; i < digits; ++i) r = `${pchar}${r}`;
+	for(let i = r.length; i < digits; ++i) { r = `${pchar}${r}`; }
 	return r.substr(-2);
 }
 // 日付文字列
@@ -65,14 +65,14 @@ function main() {
 	}
 	const ts = [];
 	for(let i = 0; i < 6; ++i) {
-		if(config.v >= 0 && i != config.v) continue;
+		if(config.v >= 0 && i != config.v) { continue; }
 		const yc = y[config.c[i]];
 		for(let j = 0; j < yc.timing.length; ++j) {
-			if(config.v == -2 && j > 0) continue;
+			if(config.v == -2 && j > 0) { continue; }
 			n.setTime(new Date(config.s[i]).getTime() + yc.timing[j] * 3600000);
 			const nt = n.getTime();
 			let k = 0;
-			for(k = 0; k < ts.length; ++k) if(nt <= ts[k][3]) break;
+			for(k = 0; k < ts.length; ++k) { if(nt <= ts[k][3]) { break; } }
 			let act = '水やり';
 			switch(j) {
 				case 0:
@@ -121,7 +121,7 @@ function setMood() {
 // 設定保存
 function saveConfig() {
 	localStorage.setItem('ppn', JSON.stringify(config));
-	if(q.length > 0) location.search = '';
+	if(q.length > 0) { location.search = ''; }
 }
 // 時分秒入力欄の設定ついでに戻り値を表示用に利用
 function intervalValue(t) {
@@ -139,7 +139,7 @@ function saveInterval() {
 // a～fの作物選択肢切り替え処理
 function setCrops() {
 	let n = 0;
-	for(let i = 0; i < config.c.length; ++i) if(config.v < 0 || i == config.v) n += y[config.c[i]].timing.length;
+	for(let i = 0; i < config.c.length; ++i) { if(config.v < 0 || i == config.v) { n += y[config.c[i]].timing.length; } }
 	tt.innerHTML = '';
 	for(let i = 0; i < n; ++i) {
 		const tr = document.createElement('tr');
@@ -186,7 +186,7 @@ function init() {
 	config = JSON.parse(localStorage.getItem('ppn') ?? JSON.stringify(config));
 
 // 共有リンクの設定再現
-	if(q.length > 0 && q.substr(0, 3) == '?q=') decodeconf(decodeURI(q.substr(3)));
+	if(q.length > 0 && q.substr(0, 3) == '?q=') { decodeconf(decodeURI(q.substr(3))); }
 
 // 配色
 	config.m = config.m ?? 0;
@@ -261,10 +261,10 @@ for(const i of it) {
 }
 ai.addEventListener('click', () => {
 	const av = Number(ac.value), yc = av > 0 ? y[av] : y[config.c[0]];
-	if(!confirm(`${yc.name}を${intervalValue(config.i)}間隔で植えますか？`)) return;
+	if(!confirm(`${yc.name}を${intervalValue(config.i)}間隔で植えますか？`)) { return; }
 	const n = new Date();
 	for(let i = av > 0 ? 0 : 1; i < 6; ++i) {
-		if(config.c[i] < 1) continue;
+		if(config.c[i] < 1) { continue; }
 		config.c[i] = av > 0 ? av : config.c[0];
 		cs[i].value = config.c[i];
 		n.setTime(new Date(config.s[0]).getTime() + i * 1000 * config.i);
@@ -290,18 +290,18 @@ for(let i = 0; i < 6; ++i) {
 			config.s[i] = datetimeISO8601(n);
 			saveConfig();
 		});
-		if(j > 0) ss[j][i].addEventListener('blur', () => ss[j][i].value = strpad(ss[j][i].value));
+		if(j > 0) { ss[j][i].addEventListener('blur', () => ss[j][i].value = strpad(ss[j][i].value)); }
 	}
 }
 rp.addEventListener('click', () => {
 	const rv = Number(rc.value), yc = rv > 0 ? y[rv] : {name : '元と同じ作物'};
-	if(!confirm(`収穫後の畑の休耕明けに${yc.name}を植えますか？`)) return;
+	if(!confirm(`収穫後の畑の休耕明けに${yc.name}を植えますか？`)) { return; }
 	const n = new Date();
 	for(let i = 0; i < 6; ++i) {
-		if(config.c[i] < 1) continue;
+		if(config.c[i] < 1) { continue; }
 		const yc = y[config.c[i]];
 		n.setTime(new Date(config.s[i]).getTime() + 3600000 * yc.timing[yc.harvest]);
-		if(new Date() - n < 0) continue;
+		if(new Date() - n < 0) { continue; }
 		if(rv > 0) {
 			config.c[i] = rv;
 			cs[i].value = config.c[i];
